@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.js"></script>
+</head>
+
+<body style="background-color: #FBFAFA">
+    <!--헤더-->
+
+    <div class="ui grid" style="margin-top: 10px;">
+        <div class="five wide column">
+            <!-- 로고-->
+            <button id="logo" class="ui basic button" style="margin-left: 60px; background-color: #fff;">
+                <i class="icon user"></i>
+                로고
+            </button>
+            <!-- //로고-->
+        </div>
+        <!--검색-->
+        <div class="five wide column">
+            <div class="ui search">
+                <div class="ui fluid action input">
+                    <input type="text" placeholder="Search...">
+                    <div class="ui button">검색</div>
+                </div>
+            </div>
+        </div>
+        <!--//검색-->
+        <!--메시지 컬럼-->
+        <div class="three wide column" style="text-align: right;">
+
+        </div>
+        <!--//메시지 컬럼-->
+        <!-- 로그인컬럼-->
+        <div class="three wide column">
+            <button class="ui basic button" onclick="fLocation()" style="margin-right: 60px;">
+                <i class="icon user"></i>
+                로그인
+            </button>
+        </div>
+        <!-- //로그인컬럼-->
+    </div>
+    <!--//헤더-->
+
+
+    <!-- 사이드 하이드바-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item">
+            <i class="block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+    </div>
+    <!--// 사이드 하이드바-->
+
+
+    <!--스크립트-->
+    <script>
+        $('#logo').click(function() {
+            $('.ui.left').sidebar('toggle');
+            $('.ui.left').sidebar('hide');
+        });
+
+        function fLocation() {
+            window.location = "login.html";
+        }
+
+    </script>
+    <!--//스크립트-->

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.js"></script>
+</head>
+
+<body  style="background-color: #FBFAFA">
+    <!--헤더-->
+    <div class="ui grid" style="margin-top: 10px; margin-bottom: 10px; background-color: #fff;">
+        <div class="five wide column">
+            <!-- 로고-->
+            <button id="logo" class="ui basic button" style="margin-left: 60px;">
+                <i class="icon user"></i>
+                로고
+            </button>
+            <!-- //로고-->
+        </div>
+        <!--검색-->
+        <div class="five wide column">
+            <div class="ui fluid action input">
+                <input type="text" placeholder="Search...">
+                <div class="ui button">검색</div>
+            </div>
+        </div>
+        <!--//검색-->
+        <!--메시지 컬럼-->
+        <div class="three wide column" style="text-align: right;">
+            <div class="ui compact menu" style="margin-right: 25px;">
+                <a class="item">
+                    <i class="icon mail"></i>
+                    <div class="floating ui red label">22</div>
+                </a>
+                <a class="item">
+                    <i class="icon users"></i>
+                    <div class="floating ui teal label">22</div>
+                </a>
+            </div>
+        </div>
+        <!--//메시지 컬럼-->
+        <!-- 로그인컬럼-->
+        <div class="three wide column">
+            <img id="profile" class="ui medium circular image" src="/images/non-human.png" style="width: 30px;cursor: pointer; margin-top: 6px;">
+        </div>
+        <!-- //로그인컬럼-->
+    </div>
+    <!--//헤더-->
+
+
+
+
+
+    <!-- 사이드 하이드바-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item">
+            <i class="block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+    </div>
+    <!--// 사이드 하이드바-->
+
+    <!--프로필-->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            프로필 사진
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <img src="/images/non-human.png" style="margin-top: 20px; margin-left: 30px; cursor: pointer;">
+            </div>
+            <div class="description">
+                <div class="ui header">프로필 이미지를 선택해주세요.</div>
+                <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+                <p>Is it okay to use this photo?</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                바꾸기
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui black deny button">
+                아니
+            </div>
+        </div>
+    </div>
+    <!---//프로필-->
+
+    <!--스크립트-->
+    <script>
+        $('#logo').click(function() {
+            $('.ui.left').sidebar('toggle');
+            $('.ui.left').sidebar('hide');
+        });
+
+        $('#profile').click(function() {
+            $('.ui.modal').modal('toggle');
+           
+        });
+
+    </script>
+    <!--//스크립트-->
+

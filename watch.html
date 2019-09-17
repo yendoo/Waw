@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.js"></script>
+    <style>
+        .myVideo {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui container" style="background-color: #FBFAFA;margin-bottom: 10px;">
+        <div>
+            <video class="myVieo" src="" width="100%" height="500" controls preload=""></video>
+        </div>
+        <!--좋아요 버튼-->
+        <div style="text-align: right;">
+            <div class="ui labeled button" tabindex="0" style="margin-top: 10px; margin-bottom: 10px;">
+                <div class="ui button">
+                    <i class="heart icon"></i> Like
+                </div>
+                <a class="ui basic label">
+                    2,048
+                </a>
+                <div style="margin-left: 10px;">
+                    <button class="ui basic button">
+                        <i class="icon user"></i>
+                        친구추가
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--//좋아요 버튼-->
+        <!--댓글-->
+        <div class="ui comments" style="max-width: 100%;">
+            <h3 class="ui dividing header">댓글 &nbsp;&nbsp;&nbsp;<span>1개</span></h3>
+            <div class="ui medium image">
+
+            </div>
+            <div class="ui form">
+                <div class="field">
+                    <label>댓글 달기</label>
+                    <form>
+                        <input type="text">
+                        <div style="text-align: right; margin-top: 10px;">
+                            <button class="ui primary button">
+                                달기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="/images/avatar/small/matt.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">Matt</a>
+                    <div class="metadata">
+                        <span class="date">Today at 5:42PM</span>
+                    </div>
+                    <div class="text">
+                        How artistic!
+                    </div>
+                    <div class="actions">
+                        <a class="reply">Reply</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="/images/avatar/small/elliot.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">Elliot Fu</a>
+                    <div class="metadata">
+                        <span class="date">Yesterday at 12:30AM</span>
+                    </div>
+                    <div class="text">
+                        <p>This has been very useful for my research. Thanks as well!</p>
+                    </div>
+                    <div class="actions">
+                        <a class="reply">Reply</a>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="/images/avatar/small/jenny.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Jenny Hess</a>
+                            <div class="metadata">
+                                <span class="date">Just now</span>
+                            </div>
+                            <div class="text">
+                                Elliot you are always so right :)
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="/images/avatar/small/joe.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">Joe Henderson</a>
+                    <div class="metadata">
+                        <span class="date">5 days ago</span>
+                    </div>
+                    <div class="text">
+                        Dude, this is awesome. Thanks so much
+                    </div>
+                    <div class="actions">
+                        <a class="reply">Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--//댓글-->
+    </div>
+</body></html>
