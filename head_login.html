@@ -9,7 +9,7 @@
     <script src="semantic/semantic.js"></script>
 </head>
 
-<body  style="background-color: #FBFAFA">
+<body style="background-color: #FBFAFA">
     <!--헤더-->
     <div class="ui grid" style="margin-top: 10px; margin-bottom: 10px; background-color: #fff;">
         <div class="five wide column">
@@ -44,7 +44,7 @@
         <!--//메시지 컬럼-->
         <!-- 로그인컬럼-->
         <div class="three wide column">
-            <img id="profile" class="ui medium circular image" src="/images/non-human.png" style="width: 30px;cursor: pointer; margin-top: 6px;">
+            <img id="profile" class="ui medium circular image" src="/images/non-human.png" style="width: 30px; cursor: pointer; margin-top: 6px;">
         </div>
         <!-- //로그인컬럼-->
     </div>
@@ -72,31 +72,37 @@
     <!--// 사이드 하이드바-->
 
     <!--프로필-->
-    <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">
-            프로필 사진
+    <form>
+        <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+                프로필 사진
+            </div>
+            <div class="image content">
+                <div class="ui medium image">
+                    <input id="myfile" type="file" onchange="ajaxFileChange();" style="display: none;">
+                    <div class="ui massive horizontal divided list">
+                        <div class="item">
+                            <img class="ui avatar image" src="/images/non-human.png" id="preview" onClick="ajaxFileUpload();" style="width: 120px; height: 120px; margin-left: 40px; margin-bottom: 20px; cursor: pointer;">
+                        </div>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="ui header">프로필 이미지를 선택해주세요.</div>
+                    <p id="nosay">프로필 이미지를 변경 하실수가 있습니다.</p>
+                    <p id="say" style="visibility: hidden;">이 이미지로 하시겠습니까?</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="ui positive right labeled icon button">
+                    바꾸기
+                    <i class="checkmark icon"></i>
+                </button>
+
+            </div>
+
         </div>
-        <div class="image content">
-            <div class="ui medium image">
-                <img src="/images/non-human.png" style="margin-top: 20px; margin-left: 30px; cursor: pointer;">
-            </div>
-            <div class="description">
-                <div class="ui header">프로필 이미지를 선택해주세요.</div>
-                <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-                <p>Is it okay to use this photo?</p>
-            </div>
-        </div>
-        <div class="actions">
-            <div class="ui positive right labeled icon button">
-                바꾸기
-                <i class="checkmark icon"></i>
-            </div>
-            <div class="ui black deny button">
-                아니
-            </div>
-        </div>
-    </div>
+    </form>
     <!---//프로필-->
 
     <!--스크립트-->
@@ -108,9 +114,58 @@
 
         $('#profile').click(function() {
             $('.ui.modal').modal('toggle');
-           
+
         });
+
+
+        function ajaxFileUpload() {
+            // 업로드 버튼이 클릭되면 파일 찾기 창을 띄운다.
+            jQuery("#myfile").click();
+        }
+
+        function ajaxFileChange() {
+            // 파일이 선택되면 업로드를 진행한다.
+            alert('1');
+            ajaxFileTransmit();
+        }
+
+        function ajaxFileTransmit() {
+            var form = jQuery("ajaxFrom")[0];
+            var formData = new FormData(form);
+            formData.append("message", "파일 확인 창 숨기기");
+            formData.append("file", jQuery("#ajaxFile")[0].files[0]);
+
+            jQuery.ajax({
+                url: "./ajaxFormReceive.php",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(json) {
+                    var obj = JSON.parse(json);
+                }
+            });
+        }
+
+
+
+
+
+        //프로필 이미지 띄우기
+        var file = document.querySelector("#myfile");
+
+        file.onchange = function() {
+            var fileList = file.files;
+
+            //읽기
+            var reader = new FileReader();
+            reader.readAsDataURL(fileList[0]);
+
+            //로드 한 후 
+            reader.onload = function() {
+                document.querySelector('#preview').src = reader.result;
+            };
+        };
 
     </script>
     <!--//스크립트-->
-
